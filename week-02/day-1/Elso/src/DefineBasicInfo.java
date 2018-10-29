@@ -9,6 +9,7 @@ public class DefineBasicInfo {
         double height = 1.75;
         // Whether you are married or not as a boolean
         boolean married = false;
+
         System.out.println("Név: "+name+"\n"+"kor: "+age+"\nmagasság: "+height+"\nházas: "+married);
     }
 }
