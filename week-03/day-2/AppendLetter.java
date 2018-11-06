@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ListIterator;
 
 
 public class AppendLetter {
@@ -9,24 +10,20 @@ public class AppendLetter {
         // Create a method called "appendA()" that adds "a" to every string in the "far" list.
         // The parameter should be a list.
         System.out.println(appendA(far));
-
-
     }
-
-
+//    static List<String> appendA(List<String> l) {
+//        List<String> w = new ArrayList<>();
+//        for (int i = 0; i < l.size(); i++) {
+//            String c = l.get(i) + 'a';
+//            w.add(c);//        }
+//    return w;
+//    }
     static List<String> appendA(List<String> l) {
-
-       List<String> w = new ArrayList<>();
-
-        for (int i = 0; i < l.size(); i++) {
-
-            String c = l.get(i) + 'a';
-
-            w.add(c);
+        ListIterator litr = l.listIterator();
+        while (litr.hasNext()) {
+            Object element = litr.next();
+            litr.set(element + "a");
         }
-
-
-        return w;
+        return l;
     }
-
 }
