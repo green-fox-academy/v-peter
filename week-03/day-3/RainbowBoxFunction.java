@@ -26,8 +26,10 @@ public class RainbowBoxFunction {
         int n = WIDTH / gcd;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                g.setColor(new Color(i*255/n,j*255/n,(int) (Math.random()*255)));
+                int b = (int) (Math.random() * 256);
+                g.setColor(new Color(i * 256 / n, j * 256 / n, b));
                 g.fillRect(i * gcd, j * gcd, gcd, gcd);
+
             }
         }
         g.setColor(c);
