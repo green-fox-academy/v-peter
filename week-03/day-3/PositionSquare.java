@@ -10,13 +10,16 @@ public class PositionSquare {
         // and draws a 50x50 square from that point.
         // draw 3 squares with that function.
         // avoid code duplication.
-
+        for (int i = 0; i < 3; i++) {
+            int x = (int) (Math.random() * (WIDTH - 50));
+            int y = (int) (Math.random() * (HEIGHT - 50));
+            drawSquare(x,y,graphics);
+        }
 
 
     }
-    public static void drawSquare(int x, int y){
-
-
+    public static void drawSquare(int x, int y, Graphics g){
+            g.fill3DRect(x,y,50,50,true);
     }
 
     // Don't touch the code below

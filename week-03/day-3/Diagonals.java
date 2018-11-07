@@ -12,13 +12,11 @@ public class Diagonals {
         int[] b = {320, 320};
         int r = (int) (Math.random() * 2);
         if (r == 0) {
-            graphics.setColor(new Color(0,255,0,255));
-            graphics.drawLine(a[0],a[1],b[0],b[1]);
-        }
-
-        else {
-            graphics.setColor(new Color(255,0,0, 255));
-            graphics.drawLine(b[0],b[1],a[0],a[1]);
+            graphics.setColor(new Color(0, 255, 0, 255));
+            graphics.drawLine(a[0], a[1], b[0], b[1]);
+        } else {
+            graphics.setColor(new Color(255, 0, 0, 255));
+            graphics.drawLine(b[0], b[1], a[0], a[1]);
         }
     }
 

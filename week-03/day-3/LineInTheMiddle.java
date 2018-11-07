@@ -1,11 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 
 public class LineInTheMiddle {
-    public static void mainDraw(Graphics graphics){
-        graphics.drawLine(0,HEIGHT/2,WIDTH,HEIGHT/2);
+    public static void mainDraw(Graphics graphics) {
+        graphics.drawLine(0, HEIGHT / 2, WIDTH, HEIGHT / 2);
 
 
     }

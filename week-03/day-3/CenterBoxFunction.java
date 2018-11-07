@@ -1,23 +1,23 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
-public class HorizontalLines {
+public class CenterBoxFunction {
+
     public static void mainDraw(Graphics graphics) {
+        // create a square drawing function that takes 1 parameter:
+        // the square size
+        // and draws a square of that size to the center of the canvas.
+        // draw 3 squares with that function.
+        // avoid code duplication.
         for (int i = 0; i < 3; i++) {
             int a = (int) (Math.random() * WIDTH);
-            int b = (int) (Math.random() * HEIGHT);
-            drawHorizontal(a, b, graphics);
+            graphics.draw3DRect(WIDTH / 2 - a / 2, HEIGHT / 2 - a / 2, a, a, true);
         }
-
-
     }
 
-    public static void drawHorizontal(int a, int b, Graphics g) {
-        if (WIDTH - a >= 50) g.drawLine(a, b, a + 50, b);
-        else g.drawLine(a, b, a - 50, b);
-    }
 
     // Don't touch the code below
     static int WIDTH = 320;
@@ -41,6 +41,5 @@ public class HorizontalLines {
             mainDraw(graphics);
         }
     }
-
 
 }

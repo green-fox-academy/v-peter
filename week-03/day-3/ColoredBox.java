@@ -8,16 +8,16 @@ public class ColoredBox {
     public static void mainDraw(Graphics graphics) {
         // Draw a box that has different colored lines on each edge.
         getRandomColor(graphics);
-        graphics.drawLine(10,10,110,10);
+        graphics.drawLine(10, 10, 110, 10);
         getRandomColor(graphics);
-        graphics.drawLine(110,10,110,110);
+        graphics.drawLine(110, 10, 110, 110);
         getRandomColor(graphics);
-        graphics.drawLine(110,110,10,110);
+        graphics.drawLine(110, 110, 10, 110);
         getRandomColor(graphics);
-        graphics.drawLine(10,110,10,10);
+        graphics.drawLine(10, 110, 10, 10);
     }
 
-    public static void getRandomColor(Graphics graphics){
+    public static void getRandomColor(Graphics graphics) {
         graphics.setColor(new Color((int) (Math.random() * 256), (int) (Math.random() * 256), (int) (Math.random() * 256), 150));
     }
 

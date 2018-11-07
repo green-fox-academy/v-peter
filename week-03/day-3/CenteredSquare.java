@@ -1,10 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class CenteredSquare {
     public static void mainDraw(Graphics graphics) {
-        graphics.setColor(new Color(0,255,0));
+        graphics.setColor(new Color(0, 255, 0));
         graphics.fillRect(WIDTH / 2, HEIGHT / 2, 10, 10);
     }
 
