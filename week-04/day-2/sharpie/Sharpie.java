@@ -3,14 +3,14 @@ package sharpie;
 public class Sharpie {
     String color;
     double width;
-    double inkAmount;
+    public double inkAmount;
 
     public Sharpie(String color, double width) {
         this.color = color;
         this.width = width;
         inkAmount = 100;
     }
-     void use(){
+    public void use(){
         inkAmount--;
      }
 
