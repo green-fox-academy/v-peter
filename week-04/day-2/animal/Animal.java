@@ -1,23 +1,29 @@
 package animal;
 
 public class Animal {
-    int hunger;
-    int thirst;
+    public String name;
+    public int hunger;
+    public int thirst;
 
-    Animal(){
+    public Animal(String name){
+        this.name = name;
         hunger = 50;
         thirst = 50;
     }
 
-    void eat(){
+    public void eat(){
         hunger--;
     }
-    void drink(){
+    public void drink(){
         thirst--;
     }
-    void play(){
+    public void play(){
         hunger++;
         thirst++;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }
