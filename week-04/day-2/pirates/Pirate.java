@@ -16,7 +16,7 @@ public class Pirate {
         if (lives == true) {
            int n = (int) (Math.random() * 3) + 1;
            rumDrinked += n;
-            System.out.println(name+" just drinked "+n+" rum(s).");
+            System.out.println(name+" just drank "+n+" rum(s).");
         } else System.out.println("he's dead");
     }
 

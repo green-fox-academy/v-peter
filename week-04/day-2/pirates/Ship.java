@@ -94,7 +94,7 @@ public class Ship {
         }
         //choose n random index from the list
         ArrayList<Integer> chosen = new ArrayList<>();
-        Iterator<Integer> i = indexList.listIterator();
+        //Iterator<Integer> i = indexList.listIterator();
         for (int j = 0; j < n; j++) {
             int r = (int) (Math.random() * pirates.size());
             if (!chosen.contains(r)) chosen.add(r);

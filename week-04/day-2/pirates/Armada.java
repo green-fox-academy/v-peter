@@ -39,27 +39,26 @@ public class Armada {
         while (!shipList.isEmpty() && !otherArmada.shipList.isEmpty()) {
             //  Ship s1 = i1.next();
             //  Ship s2 = i2.next();
-            if (i > shipList.size()) i = 0;
-            if (j > otherArmada.shipList.size()) j = 0;
+            //if (i > shipList.size()) i = 0;
+            //if (j > otherArmada.shipList.size()) j = 0;
             Ship s1 = shipList.get(i);
             Ship s2 = otherArmada.shipList.get(j);
             // if (s1.battle(s2)) i2.remove();
             if (s1.battle(s2)) {
                 otherArmada.shipList.remove(j);
-                j++;
             } else if (s1.calculateScore() == s2.calculateScore()) {
                 shipList.remove(i);
-                i++;
                 otherArmada.shipList.remove(j);
-                j++;
             } else {
                 shipList.remove(i);
-                i++;
             }
         }
         if (!shipList.isEmpty()) {
-            return true;
+            System.out.println("Winner captain: "+shipList.get(0).pirates.get(shipList.get(0).getCaptainIndex()).name+" drank "+shipList.get(0).pirates.get(shipList.get(0).getCaptainIndex()).rumDrinked+" rums.");
+            return true;          
+            
         }
+        System.out.println("Winner captain: "+otherArmada.shipList.get(0).pirates.get(otherArmada.shipList.get(0).getCaptainIndex()).name+"drunk "+otherArmada.shipList.get(0).pirates.get(otherArmada.shipList.get(0).getCaptainIndex()).rumDrinked+" rums.");
         return false;
     }
 }
