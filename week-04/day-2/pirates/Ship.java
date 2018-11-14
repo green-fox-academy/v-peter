@@ -10,13 +10,14 @@ public class Ship {
     public Ship(String name) {
         this.name = name;
         this.pirates = new ArrayList<>();
+        fillShip();
     }
 
     void fillShip() {
 
         String[] nameList = {"Alfred", "Bill", "Charles", "Dave", "Elliot", "Freddy", "Greg", "Harley", "Ian", "Jack", "Mike"};
         for (int i = 0; i < (int) (Math.random() * 10) + 5; i++) {
-            pirates.add(new Pirate(nameList[(int) (Math.random() * nameList.length)], false, (int) (Math.random()*2) +1));
+            pirates.add(new Pirate(nameList[(int) (Math.random() * nameList.length)], false, (int) (Math.random()*5) +1));
         }
         pirates.add(new Pirate(nameList[(int) (Math.random() * nameList.length)], true, (int) (Math.random()*2) +1));
     }
@@ -54,22 +55,22 @@ public class Ship {
     }
 
     boolean battle(Ship otherShip) {
-        String ANSI_RED = "\u001B[31m";
+        String ANSI_GREEN = "\u001B[32m";
         final String ANSI_RESET = "\u001B[0m";
-        System.out.println(ANSI_RED+"Battle begins between "+name+" and "+otherShip.name+"."+ ANSI_RESET);
-        if (calculateScore() > otherShip.calculateScore()) {
-            System.out.println("Ship "+name+" won.");
+        System.out.println(ANSI_GREEN+"Battle begins between "+name+" and "+otherShip.name+"."+ANSI_RESET);
+        if (this.calculateScore() > otherShip.calculateScore()) {
+            System.out.println(ANSI_GREEN+"Ship "+name+" won."+ANSI_RESET);
             otherShip.lose();
             win();
             return true;
-        } else if (calculateScore() < otherShip.calculateScore()) {
-            System.out.println("Ship "+otherShip.name+" won.");
+        } else if (this.calculateScore() < otherShip.calculateScore()) {
+            System.out.println(ANSI_GREEN+"Ship "+otherShip.name+" won."+ANSI_RESET);
             lose();
             otherShip.win();
             return false;
         }
         else {
-            System.out.println("The battle ended in draw.");
+            System.out.println(ANSI_GREEN+"The battle ended in draw."+ANSI_RESET);
             lose();
             otherShip.lose();
             return false;
