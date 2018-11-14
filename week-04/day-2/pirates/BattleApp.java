@@ -1,7 +1,7 @@
 package pirates;
 
 public class BattleApp {
-    public static void main(String[] args){
+    public static void main(){
         Ship s1 = new Ship("Bounty");
         Ship s2 = new Ship("Pequod");
 
