@@ -3,6 +3,7 @@ package fleetofthings;
 import java.util.ArrayList;
 
 public class Fleet {
+
     private ArrayList<Thing> things;
 
     public Fleet() {
@@ -12,6 +13,8 @@ public class Fleet {
     public void add(Thing thing) {
         things.add(thing);
     }
+
+
 
     @Override
     public String toString() {
