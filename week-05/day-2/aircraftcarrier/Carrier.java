@@ -38,7 +38,6 @@ public class Carrier {
     System.out.println(name + " is filled.");
   }
 
-
   int totalDamage() {
     int damage = 0;
     for (Aircraft a :
@@ -50,8 +49,7 @@ public class Carrier {
 
   void fight(Carrier c) {
     System.out.println(name + " fights " + c.name);
-    //int max = c.aircrafts.size();
-    //if (aircrafts.size() > c.aircrafts.size()) max = aircrafts.size();
+
     Iterator<Aircraft> i1 = aircrafts.iterator();
     Iterator<Aircraft> i2 = c.aircrafts.iterator();
 
@@ -64,30 +62,6 @@ public class Carrier {
     while ((hp > 0 && c.hp > 0) && i2.hasNext())
       hp -= i2.next().fight();
   }
-
-//    if (c.totalDamage() > hp || totalDamage() > c.hp)
-//      if (c.totalDamage() > hp) {
-//        c.hp -= totalDamage();
-//        hp = 0;
-//      } else if (totalDamage() > c.hp) {
-//        hp -= c.totalDamage();
-//        c.hp = 0;
-//
-//      } else {
-//        for (Aircraft a :
-//            aircrafts) {
-//          c.hp -= a.fight();
-//          if (c.hp <= 0) hp = 0;
-//        }
-//        for (Aircraft a :
-//            c.aircrafts) {
-//          hp -= a.fight();
-//          if (hp <= 0) hp = 0;
-//        }
-//      }
-//    hp -= c.totalDamage();
-//    c.hp -= this.totalDamage();
-
 
   String getStatus() {
     if (hp <= 0) return "It's dead Jim :(";
