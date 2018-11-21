@@ -1,11 +1,13 @@
 package comparable;
 
+import printable.Printable;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class Domino implements Comparable{
+public class Domino implements Comparable, Printable {
   private final int left;
   private final int right;
 
@@ -14,7 +16,10 @@ public class Domino implements Comparable{
     this.right = right;
   }
 
-
+  @Override
+  public void printAllFields() {
+    System.out.print(toString() + " ");
+  }
 
   public int getLeftSide() {
     return left;
@@ -48,6 +53,8 @@ public class Domino implements Comparable{
     return 0;
   }
 
+
+
   public static void main(String[] args){
     List<Domino> dominoes = new ArrayList<>();
     dominoes.add(new Domino(5, 2));
@@ -59,7 +66,11 @@ public class Domino implements Comparable{
 
     Collections.sort(dominoes);
 
-    System.out.println(dominoes);
+
+
+    for (Domino d : dominoes) {
+      d.printAllFields();
+    }
 
   }
 

@@ -1,6 +1,8 @@
 package zoo.animals;
 
-public class Bird extends Animal{
+import flyable.Flyable;
+
+public class Bird extends Animal implements Flyable {
   int numberOfLegs = 2;
 
   public Bird(String s){
@@ -15,5 +17,20 @@ public class Bird extends Animal{
   @Override
   public void eat() {
     System.out.println(name+" is eating.");
+  }
+
+  @Override
+  public void land() {
+
+  }
+
+  @Override
+  public void fly() {
+
+  }
+
+  @Override
+  public void takeOff() {
+
   }
 }

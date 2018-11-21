@@ -17,7 +17,14 @@ public class Gnirts implements CharSequence {
 
   @Override
   public char charAt(int index) {
-    return s.charAt(length() - index - 1);
+    char c = '\u0000';
+    try {
+      c = s.charAt(length() - index - 1);
+
+    } catch (IndexOutOfBoundsException e){
+      System.out.println("Illegal index");
+    }
+   return c;
   }
 
   @Override

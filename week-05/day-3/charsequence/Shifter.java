@@ -1,8 +1,11 @@
 package charsequence;
 
+
+
 public class Shifter implements CharSequence {
   String s;
   int shift;
+
 
   public Shifter(String s, int shift) {
     this.s = s;
@@ -16,7 +19,13 @@ public class Shifter implements CharSequence {
 
   @Override
   public char charAt(int index) {
-    return s.charAt(index + shift);
+    char c = '\u0000';
+    try {
+      c = s.charAt(index + shift);
+    } catch (IndexOutOfBoundsException e){
+      System.out.println("Illegal index");
+    }
+    return c;
   }
 
   @Override
