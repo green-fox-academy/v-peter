@@ -4,6 +4,8 @@ import java.util.Random;
 
 public class Reservation implements Reservationy {
   String[] dows = {"MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"};
+  final String ANSI_RED = "\u001B[31m";
+  final String ANSI_RESET = "\u001B[0m";
 
 
   @Override
@@ -26,7 +28,7 @@ public class Reservation implements Reservationy {
   }
 
   void printReservation() {
-    System.out.println(String.format("Booking# %1$s for %2$s",
+    System.out.println(String.format("Booking# %1$s"+ANSI_RED+" for"+ANSI_RESET+" %2$s",
         getCodeBooking(), getDowBooking()));
   }
 
