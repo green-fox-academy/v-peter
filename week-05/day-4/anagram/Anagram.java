@@ -23,7 +23,7 @@ public class Anagram {
     return true;
   }
 
-  public int countChar(char c, String s) {
+  public static  int countChar(char c, String s) {
     int sum = 0;
     for (char actualChar :
         s.toCharArray()) {
