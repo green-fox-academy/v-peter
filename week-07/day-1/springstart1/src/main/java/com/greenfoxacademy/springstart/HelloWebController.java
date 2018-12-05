@@ -21,9 +21,13 @@ public class HelloWebController {
     int red = (int) (Math.random() * 256);
     int green = (int) (Math.random() * 256);
     int blue = (int) (Math.random() * 256);
+   // int r = (int) (Math.random() * 20 + 20);
+
     model.addAttribute("red", red);
     model.addAttribute("green", green);
     model.addAttribute("blue", blue);
+   // model.addAttribute("r", r);
+
    return "greeting";
   }
 }
