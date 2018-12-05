@@ -5,6 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<p th:text="'Hello, ' + ${name} + '!' + ' Site loadings: '+ ${count}"/>
+<!--<script>-->
+<!--red = Math.random() * 256;-->
+<!--green = Math.random() * 256;-->
+<!--blue = Math.random() * 256;-->
+<!--</script>-->
+<p
+   th:text="${hello} +', ' + ${name} + '!' + ' Site loadings: '+ ${count}"></p>
 </body>
 </html>
+

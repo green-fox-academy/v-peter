@@ -17,7 +17,13 @@ public class HelloWebController {
     Greeting greeting = new Greeting(al.getAndIncrement(), name);
     model.addAttribute("name", greeting.getContent());
     model.addAttribute("count", greeting.getId());
-
+    model.addAttribute("hello", greeting.hello);
+    int red = (int) (Math.random() * 256);
+    int green = (int) (Math.random() * 256);
+    int blue = (int) (Math.random() * 256);
+    model.addAttribute("red", red);
+    model.addAttribute("green", green);
+    model.addAttribute("blue", blue);
    return "greeting";
   }
 }
