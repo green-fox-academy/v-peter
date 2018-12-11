@@ -1,6 +1,8 @@
 package com.greenfoxacademy.basicwebshop.model;
 
-public class Item {
+import java.util.Comparator;
+
+public class Item implements Comparable<Item> {
 
   private String name;
   private String description;
@@ -45,5 +47,12 @@ public class Item {
 
   public void setQuantity(int quantity) {
     this.quantity = quantity;
+  }
+
+  @Override
+  public int compareTo(Item i) {
+    return this.getPrice() < i.getPrice() ? -1
+        : this.getPrice() > i.getPrice() ? 1
+        : 0;
   }
 }

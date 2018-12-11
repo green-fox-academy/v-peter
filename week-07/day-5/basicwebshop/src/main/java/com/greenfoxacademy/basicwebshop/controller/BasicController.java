@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Collections;
 import java.util.stream.Collectors;
 
 @Controller
@@ -36,10 +37,10 @@ public class BasicController {
     return "index";
   }
 
-//  @RequestMapping ("/only-available")
-//  public String onlyAvailable(Model model) {
-//
-//    model.addAttribute("list", items.getItemList());
-//    return "index";
-//  }
+  @RequestMapping ("/cheapest-first")
+  public String cheapestFirst(Model model) {
+    model.addAttribute("list", items.cheapestFirst());
+    return "index";
+  }
+
 }

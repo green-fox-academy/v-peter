@@ -1,6 +1,7 @@
 package com.greenfoxacademy.basicwebshop.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Items {
   private ArrayList<Item> itemList;
@@ -18,5 +19,9 @@ public class Items {
     return itemList;
   }
 
+  public ArrayList<Item> cheapestFirst() {
+    Collections.sort(itemList);
+    return itemList;
+  }
 
 }
