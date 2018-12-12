@@ -7,8 +7,8 @@
 </head>
 <body>
 <div th:each="bankAccount : ${bankAccounts}">
-    <h1 th:utext="'Name: '+ ${bankAccount.name} + '<br>Balance: '
-    +${#numbers.formatDecimal(bankAccount.balance,0, 2, 'POINT')} + '<br>Animal type: ' + ${bankAccount.animalType}"></h1>
+    <h1 th:utext="'Name: '+ ${bankAccount.animal.name} + '<br>Balance: '
+    +${#numbers.formatDecimal(bankAccount.balance,0, 2, 'POINT')} + '<br>Animal type: ' + ${bankAccount.animal.animalType}"></h1>
 </div>
 </body>
 </html>

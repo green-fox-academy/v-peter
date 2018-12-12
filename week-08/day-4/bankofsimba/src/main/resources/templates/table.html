@@ -8,7 +8,7 @@
         td {
             border: 1px solid black;
             table-layout: fixed;
-            width: 100px;"
+            width: 13%;
         }
     </style>
 </head>
@@ -20,15 +20,38 @@
     <td>Balance</td>
     <td>Animal type</td>
     <td>Is king?</td>
+    <td>Good / Bad ?</td>
     </thead>
     <tbody th:each="bankAccount : ${bankAccounts}">
-    <tr>
+    <tr th:if="${bankAccount.animal.king}" style="color: gold">
         <td th:utext="${bankAccountStat.index}"></td>
-        <td th:utext="${bankAccount.name}"></td>
+        <td th:utext="${bankAccount.animal.name}"></td>
         <td th:utext="${#numbers.formatDecimal(bankAccount.balance,0, 2, 'POINT')}"></td>
-        <td th:utext="${bankAccount.animalType}"></td>
-        <td th:if="${bankAccount.isKing()}" th:utext="YES"></td>
-        <td th:unless="${bankAccount.isKing()}" th:utext="NO"></td>
+        <td th:utext="${bankAccount.animal.animalType}"></td>
+        <td th:utext="YES"></td>
+        <th:block th:switch="${bankAccount.animal.goodOrBad}">
+            <div th:case="'Good One'">
+                <td th:utext="'Good One'"></td>
+            </div>
+            <div th:case="'Bad Guy'">
+                <td th:utext="'Bad Guy'"></td>
+            </div>
+        </th:block>
+    </tr>
+    <tr th:unless="${bankAccount.animal.king}" style="color: black">
+        <td th:utext="${bankAccountStat.index}"></td>
+        <td th:utext="${bankAccount.animal.name}"></td>
+        <td th:utext="${#numbers.formatDecimal(bankAccount.balance,0, 2, 'POINT')}"></td>
+        <td th:utext="${bankAccount.animal.animalType}"></td>
+        <td th:utext="NO"></td>
+        <th:block th:switch="${bankAccount.animal.goodOrBad}">
+            <div th:case="'Good One'">
+                <td th:utext="'Good One'"></td>
+            </div>
+            <div th:case="'Bad Guy'">
+                <td th:utext="'Bad Guy'"></td>
+            </div>
+        </th:block>
     </tr>
     </tbody>
 </table>
