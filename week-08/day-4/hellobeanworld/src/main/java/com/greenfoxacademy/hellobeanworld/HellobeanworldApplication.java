@@ -15,11 +15,6 @@ public class HellobeanworldApplication implements CommandLineRunner {
   @Qualifier("GreenColor")
   private MyColor color;
 
-  public void SetColor(MyColor mycolor){
-    this.color = mycolor;
-  }
-
-
 
   @Autowired
   public void setPrinter(Printer printer) {
