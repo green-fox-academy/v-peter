@@ -2,10 +2,13 @@ package com.greenfoxacademy.connectmysql.service;
 
 import com.greenfoxacademy.connectmysql.model.Todo;
 import com.greenfoxacademy.connectmysql.repository.TodoRepository;
+import javassist.bytecode.stackmap.TypeData;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,7 +30,7 @@ public class Service {
 //         list) {
 //      if(!item.isDone()) result.add(item);
 //    }
-    List<Todo> result =  list.stream()
+    List<Todo> result = list.stream()
         .filter(Todo -> !Todo.isDone())
         .collect(Collectors.toList());
     return result;
@@ -36,8 +39,20 @@ public class Service {
   public ArrayList<Todo> listAll() {
     ArrayList<Todo> list = new ArrayList<>();
     this.repo.findAll().forEach(list::add);
+//    list.sort(Comparator.comparing(Todo::getId));
     return list;
   }
 
+  public Todo getTodoById(long id) {
+    return this.repo.findById(id).get();
+  }
+
+  public void deleteTodo(Todo todo) {
+    this.repo.delete(todo);
+  }
+
+  public void addTodo(Todo todo){
+    if (todo != null) repo.save(todo);
+  }
 
 }

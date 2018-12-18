@@ -24,6 +24,6 @@ public class ConnectmysqlApplication implements CommandLineRunner {
   public void run(String... args) {
 //    repo.save(new Todo("I have to learn Object Relational Mapping"));
 //    repo.save(new Todo("having lunch"));
-//  repo.save(new Todo("whatever", true, true));
+//    repo.save(new Todo("anything" ));
   }
 }
