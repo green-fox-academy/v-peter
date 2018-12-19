@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Todo list</title>
+    <title>List of Todos</title>
     <!--<link th:href="/resources/static/style.css" rel="stylesheet">-->
     <style>
     td{
@@ -11,6 +11,10 @@
     </style>
 </head>
 <body>
+<form action="/todo/search"  method="post">
+    <label>Find by title: <input type="text" name="title" required></label>
+    <input type="submit" value="Submit">
+</form>
 <h1>TODOS FOR TODAY:</h1>
 <a th:href="@{/todo/add}">Add new todo</a><br>
 <br>
@@ -37,7 +41,7 @@
 <ul>
 <li><a th:href="@{/todo/list(active=true)}">Active todos</a></li>
     <li><a th:href="@{/todo/list(active=false)}">All todos</a></li>
-</ul>
-
+</ul><br>
+<a href="/assignee">List of assignees</a></li>
 </body>
 </html>

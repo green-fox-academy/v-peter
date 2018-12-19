@@ -5,6 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name="todo")
 public class Todo {
 
   @Id
@@ -25,6 +26,13 @@ public class Todo {
   }
 
   public Todo(String title, boolean urgent, boolean done) {
+    this.title = title;
+    this.urgent = urgent;
+    this.done = done;
+  }
+
+  public Todo(long id, String title, boolean urgent, boolean done) {
+    this.id = id;
     this.title = title;
     this.urgent = urgent;
     this.done = done;
