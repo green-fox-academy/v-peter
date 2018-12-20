@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a new post</title>
+    <link rel="stylesheet" th:href="@{/poststyle.css}" type="text/css">
+</head>
+<body>
+<div id="center">
+<h1>Submit a new post</h1>
+<form action="#" th:action="@{/reddit/add}" th:object="${post}" method="post">
+<input type="hidden" th:field="*{vote}" th:value="'1'">
+    <label>Title<input type="text" th:field="*{title}" required></label><br>
+    <label>URL<input type="text" th:field="*{url}" required></label><br>
+    <input type="submit" value="Submit">
+</form>
+</div>
+</body>
+</html>

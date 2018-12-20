@@ -1,0 +1,16 @@
+html{
+    font-size: 22px
+}
+
+h1, table, form {
+    margin: auto;
+}
+thead td{
+    color: blue;
+    font-weight: bold;
+}
+td {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
