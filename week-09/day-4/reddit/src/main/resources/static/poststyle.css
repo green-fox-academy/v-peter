@@ -1,14 +1,20 @@
-html{
+html {
     font-size: 22px
 }
 
-h1, table, form {
+h1, table, form, a {
     margin: auto;
 }
-thead td{
+
+.center {
+    margin: auto;
+}
+
+thead td {
     color: blue;
     font-weight: bold;
 }
+
 td {
     padding-left: 30px;
     padding-right: 30px;

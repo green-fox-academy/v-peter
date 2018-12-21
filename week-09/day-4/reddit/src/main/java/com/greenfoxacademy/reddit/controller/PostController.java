@@ -20,7 +20,8 @@ public class PostController {
 
   @RequestMapping(value = {"", "/postlist"})
   public String listAllPost(Model model) {
-    model.addAttribute("posts", service.listAll());
+//    model.addAttribute("posts", service.listAll());
+    model.addAttribute("posts", service.listFirstTen());
     return "postlist";
   }
 
