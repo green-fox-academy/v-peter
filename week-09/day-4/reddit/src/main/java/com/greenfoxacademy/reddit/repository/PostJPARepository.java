@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface PostJPARepository extends JpaRepository<Post, Long> {
 
-@Query("SELECT p FROM Post p ORDER BY vote DESC LIMIT")
-    public List<Post> findPostsOrderByVote();
+@Query(value="SELECT * FROM Post ORDER BY vote DESC LIMIT ?1", nativeQuery = true)
+    public List<Post> findPostsOrderByVote(long limit);
 }

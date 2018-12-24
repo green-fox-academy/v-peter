@@ -1,9 +1,6 @@
 package com.greenfoxacademy.reddit.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.awt.*;
 import java.sql.Time;
 import java.util.Date;
@@ -19,10 +16,6 @@ public class Post {
   private Date creationDate;
 
 
-  public Post(String title, String url) {
-    this.title = title;
-    this.url = url;
-  }
 
   public Post() {
     this.creationDate = new Date();

@@ -1,6 +1,7 @@
 package com.greenfoxacademy.reddit.controller;
 
 import com.greenfoxacademy.reddit.model.Post;
+
 import com.greenfoxacademy.reddit.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,9 +20,11 @@ public class PostController {
   }
 
   @RequestMapping(value = {"", "/postlist"})
-  public String listAllPost(Model model) {
+  public String listAllPost(Model model, String ppp) {
 //    model.addAttribute("posts", service.listAll());
-    model.addAttribute("posts", service.listFirstTen());
+    if (ppp == null) model.addAttribute("posts", service.listFirstTen());
+    else model.addAttribute("posts", service.listOptionalNumber(Integer.parseInt(ppp)));
+
     return "postlist";
   }
 
@@ -40,7 +43,6 @@ public class PostController {
 
   @PostMapping(value = "/add")
   public String add(@ModelAttribute Post post){
-    System.out.println("vote "+post.getVote());
     service.addPost(post);
     return "redirect:/reddit";
   }
@@ -56,5 +58,11 @@ public class PostController {
     service.decreaseVoteById(id);
     return "redirect:/reddit";
   }
+//
+//  @GetMapping(value="/login")
+//  public String login(@ModelAttribute User user){
+//
+//    return "redirect:/reddit";
+//  }
 
 }

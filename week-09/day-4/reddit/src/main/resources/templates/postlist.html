@@ -6,6 +6,11 @@
     <link rel="stylesheet" th:href="@{/poststyle.css}" type="text/css">
 </head>
 <body>
+<!--<form action="#" th:action="@{/reddit/login}" th:object="${user}" method="post">-->
+    <!--<label>Username<input type="text" th:field="*{userName}" required></label><br>-->
+    <!--<label>Password<input type="text" th:field="*{password}" required></label><br>-->
+    <!--<input type="submit" value="Login">-->
+<!--</form>-->
 <a href="/reddit/add">Add new post</a>
 <div class="center">
 <h1 id="center">Trending posts</h1>
@@ -22,15 +27,21 @@
     <tbody>
     <tr th:each="post: ${posts}">
         <td th:text="${post.vote}"></td>
-        <td><a th:href="@{/reddit/{id}/incr(id=${post.id})}">+</a></td>
-        <td><a th:href="@{/reddit/{id}/decr(id=${post.id})}">-</a></td>
+        <td><a th:href="@{/reddit/{id}/incr(id=${post.id})}"><img src="/images/upvoted.png"></a></td>
+        <td><a th:href="@{/reddit/{id}/decr(id=${post.id})}"><img src="/images/downvoted.png"></a></td>
         <td th:text="${post.title}"></td>
         <td th:text="${post.creationDate}">Date</td>
     </tr>
     </tbody>
 </table>
+    <div style="margin: auto">
+    <form action="#" th:action="@{/reddit/}" method="post">
+        Post per pages: <input type="text" name="ppp" required></label><br>
+        <input type="submit" value="Submit">
+    </form>
 <a href="/redit/nextten">Next comments</a><br>
 <a href="/redit/prevten">Previous comments</a>
+    </div>
 </div>
 </body>
 </html>

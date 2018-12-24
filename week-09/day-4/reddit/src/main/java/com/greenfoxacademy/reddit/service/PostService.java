@@ -27,7 +27,7 @@ public class PostService {
     this.jparepo = jparepo;
   }
 
-  public Iterable<Post> listAll() {
+  public List<Post> listAll() {
 
     List<Post> list = new ArrayList<>();
     repo.findAll().forEach(list::add);
@@ -60,5 +60,18 @@ public class PostService {
     Post modifiedPost = this.getPostById(id);
     modifiedPost.setVote(modifiedPost.getVote() - 1);
     this.repo.save(modifiedPost);
+  }
+
+  public long getPostNumber(){
+    return this.listAll().stream().count();
+  }
+
+  public long getPageNumber(int postsPerPage){
+    if(getPostNumber() % postsPerPage == 0) return getPostNumber() / postsPerPage;
+    else return getPostNumber() / postsPerPage + 1;
+  }
+
+  public List<Post> listOptionalNumber(long limit) {
+    return jparepo.findPostsOrderByVote(limit);
   }
 }
