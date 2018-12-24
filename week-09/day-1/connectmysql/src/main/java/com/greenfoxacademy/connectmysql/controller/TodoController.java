@@ -49,8 +49,14 @@ public class TodoController {
 //    return "todolist";
 //  }
 
-  @RequestMapping(value = "/{id}/delete")
-  public String delete(@PathVariable(name = "id") long id) {
+//  @RequestMapping(value = "/{id}/delete")
+//  public String delete(@PathVariable(name = "id") long id) {
+//    todoService.deleteTodo(todoService.getTodoById(id));
+//    return "redirect:/todo";
+//  }
+
+  @RequestMapping(value = "/delete")
+  public String delete(@RequestParam long id) {
     todoService.deleteTodo(todoService.getTodoById(id));
     return "redirect:/todo";
   }
@@ -73,9 +79,9 @@ public class TodoController {
     return "todoedit";
   }
 
-  @PostMapping(value = "/edit")
-  public String modify(@ModelAttribute Todo todo){
-    todoService.addTodo(todo);
+  @PostMapping(value = "/{id}/edit")
+  public String modify(@ModelAttribute Todo editedTodo){
+    todoService.addTodo(editedTodo);
     return "redirect:/todo";
   }
 

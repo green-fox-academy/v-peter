@@ -41,7 +41,7 @@ public class AssigneeController {
 
   @PostMapping(value = "/edit")
   public String modify(@ModelAttribute Assignee ass) {
-    service.editAssignee(ass, ass.getId());
+    service.editAssignee(ass);
     return "redirect:/assignee";
   }
 

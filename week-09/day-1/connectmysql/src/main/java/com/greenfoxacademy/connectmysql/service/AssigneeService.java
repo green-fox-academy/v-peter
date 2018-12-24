@@ -33,8 +33,8 @@ public class AssigneeService {
     this.repo.save(ass);
   }
 
-  public void editAssignee(Assignee ass){
-    ass.setId(id);
+  public void editAssignee(Assignee ass) {
+      repo.save(ass);
 
   }
 
