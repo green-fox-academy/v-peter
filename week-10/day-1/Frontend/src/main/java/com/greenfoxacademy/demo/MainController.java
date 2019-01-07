@@ -30,18 +30,15 @@ public class MainController {
   @GetMapping("/greeter")
   @ResponseBody
   public Object greeter(@RequestParam(required = false) String name, @RequestParam(required = false) String title) {
-    if (name == null && title == null){
+    if (name == null && title == null) {
       return new Error("Please provide a name and a title!");
-    }
-    else if (name == null && title != null){
+    } else if (name == null) {
       return new Error("Please provide a name!");
-    }
-    else if (title == null && name != null){
+    } else if (title == null) {
       HashMap<String, String> error = new HashMap<>();
       error.put("error", "Please provide a title!");
       return error;
-    }
-    else {
+    } else {
       return new Welcome("Oh, hi there " + name + ", my dear " + title + "!");
     }
   }
@@ -60,52 +57,69 @@ public class MainController {
   @PostMapping("/dountil/{action}")
   @ResponseBody
   public Object doUntil(@PathVariable String action, @RequestBody Until json) {
-    if (action.equals("sum")) return new Result(sum(json.getUntil()));
-    else if (action.equals("factor")) return new Result(factor(json.getUntil()));
-    else return new Error("Please provide a number!");
+    Result result = new Result();
+    HashMap<String, Integer> map = new HashMap<>();
+    if (json == null) return new Error("Please provide a number!");
+    else if (action.equals("sum")) {
+      map.put("result", result.sum(json));
+      return map;
+    } else if (action.equals("factor")) {
+      map.put("result", result.factor(json));
+      return map;
+    } else return null;
+
   }
 
   class Result {
     int result;
+
     public Result() {
     }
+
     public Result(int result) {
       this.result = result;
     }
+
     public int getResult() {
       return result;
     }
+
     public void setResult(int result) {
       this.result = result;
     }
+
+    public int sum(Until u) {
+      int sum = 0;
+      for (int i = 1; i <= u.getUntil(); i++) {
+        sum += i;
+      }
+      return sum;
+    }
+
+    public int factor(Until u) {
+      int fact = 1;
+      for (int i = 1; i <= u.getUntil(); i++) {
+        fact *= i;
+      }
+      return fact;
+    }
   }
 
-  public int sum(int a) {
-    int sum = 0;
-    for (int i = 1; i < a; i++) {
-      sum += i;
-    }
-    return sum;
-  }
-
-  public int factor(int a) {
-    int fact = 1;
-    for (int i = 1; i < a; i++) {
-      fact *= i;
-    }
-    return fact;
-  }
 
   class Append {
     String appended;
+
     public Append(String appended) {
       this.appended = appended;
     }
+
     public Append() {
     }
+
     public String getAppended() {
       return appended;
     }
+
     public void setAppended(String appended) {
       this.appended = appended;
     }
@@ -113,14 +127,18 @@ public class MainController {
 
   class Welcome {
     String welcome_message;
+
     public Welcome() {
     }
+
     public Welcome(String welcome_message) {
       this.welcome_message = welcome_message;
     }
+
     public String getWelcome_message() {
       return welcome_message;
     }
+
     public void setWelcome_message(String welcome_message) {
       this.welcome_message = welcome_message;
     }
@@ -128,14 +146,18 @@ public class MainController {
 
   class Error {
     String error;
+
     public Error() {
     }
+
     public String getError() {
       return error;
     }
+
     public void setError(String error) {
       this.error = error;
     }
+
     public Error(String error) {
       this.error = error;
     }
@@ -144,21 +166,27 @@ public class MainController {
   class Resp {
     int received;
     int result;
+
     public Resp() {
     }
+
     public Resp(int received, int result) {
       this.received = received;
       this.result = result;
     }
+
     public int getReceived() {
       return received;
     }
+
     public void setReceived(int received) {
       this.received = received;
     }
+
     public int getResult() {
       return result;
     }
+
     public void setResult(int result) {
       this.result = result;
     }
