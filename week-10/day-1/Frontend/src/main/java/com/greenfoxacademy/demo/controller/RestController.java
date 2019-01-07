@@ -62,6 +62,24 @@ public class RestController {
       map.put("result", result.factor(json));
       return map;
     } else return null;
-
   }
+
+  @PostMapping("/arrays")
+  public Object arrays(@RequestBody JasonObject json) {
+    Result res = new Result();
+    if (json.getWhat() == null || json.getNumbers() == null) return new Error("Please provide an array or action!");
+    else if (json.getWhat().equals("sum")) {
+      res.sum(json);
+      return res;
+    } else if (json.getWhat().equals("multiply")) {
+      res.multiply(json);
+      return res;
+    } else if (json.getWhat().equals("double")) {
+      HashMap<String, Integer[]> map = new HashMap<>();
+      map.put("result", res.doubler(json));
+      return map;
+    }
+    return new Error("Invalid data");
+  }
+
 }
