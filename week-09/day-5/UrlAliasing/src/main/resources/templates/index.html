@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<title>Url Aliaser</title>
+<head>
+    <style>
+       td {
+           border: 1px solid black;
+       }
+    </style>
+</head>
+<body>
+<p th:style="'color: '+${color}" th:text="${message}"></p>
+<div>
+    <form method="post" action="/save-link">
+        <label>URL<br><input type="text" name="url" th:value="${url}" required>
+        </label><br>
+        <label>Alias<br><input type="text" name="alias" th:value="${alias}" required>
+        </label><br>
+        <input type="submit">
+    </form>
+</div>
+<br>
+<table style="border-collapse: collapse">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Url</td>
+        <td>Alias</td>
+        <td>HitCount</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="url: ${urls}">
+        <td th:text="${url.id}"></td>
+        <td th:text="${url.url}"></td>
+        <td th:text="${url.alias}"></td>
+        <td th:text="${url.hitCount}"></td>
+    </tr>
+    </tbody>
+</table><br>
+<form action="/a">
+    <label>Enter an alias: <input th:type="text" name="alias" required></label>
+    <input type="submit" value="Go to the page">
+</form>
+</body>
+</html>
