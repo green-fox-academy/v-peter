@@ -3,18 +3,32 @@ package com.greenfoxacademy.demo.controller;
 
 import com.greenfoxacademy.demo.model.*;
 import com.greenfoxacademy.demo.model.Error;
+
+import com.greenfoxacademy.demo.repository.JPARepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.crypto.Data;
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
+  JPARepository repo;
+
+  @Autowired
+  public void setRepo(JPARepository repo) {
+    this.repo = repo;
+  }
+
 
   @GetMapping("/doubling")
   @ResponseBody
   public Object doubling(@RequestParam(required = false) Integer input) {
+    repo.save(new Log(new Date(), "/doubling", input+""));
     if (input == null) {
       return new com.greenfoxacademy.demo.model.Error("Please provide an input!");
     } else {
@@ -80,6 +94,11 @@ public class RestController {
       return map;
     }
     return new Error("Invalid data");
+  }
+
+  @GetMapping("/log")
+  public List<Log> logger(){
+    return repo.findAll();
   }
 
 }
