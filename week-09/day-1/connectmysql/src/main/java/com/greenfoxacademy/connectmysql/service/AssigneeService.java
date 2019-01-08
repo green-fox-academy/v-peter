@@ -35,7 +35,10 @@ public class AssigneeService {
 
   public void editAssignee(Assignee ass) {
       repo.save(ass);
+  }
 
+  public Assignee getAssigneeByName(String name){
+    return this.repo.findByName(name);
   }
 
 }

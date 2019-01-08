@@ -29,7 +29,7 @@ public class AssigneeController {
   @RequestMapping(value = "/{id}/delete")
   public String delete(@PathVariable long id) {
     service.delete(service.getAssigneeById(id));
-    return "assigneelist";
+    return "redirect:/assignee";
   }
 
 
@@ -39,7 +39,7 @@ public class AssigneeController {
     return "assigneeedit";
   }
 
-  @PostMapping(value = "/edit")
+  @PostMapping(value = "/{id}/edit")
   public String modify(@ModelAttribute Assignee ass) {
     service.editAssignee(ass);
     return "redirect:/assignee";

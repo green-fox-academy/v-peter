@@ -9,6 +9,12 @@
     <label>Todo description<input type="text" th:field="*{title}" required></label>
     <label>Urgent<input type="checkbox" th:field="*{urgent}" ></label>
     <label>Done<input type="checkbox" th:field="*{done}" ></label>
+    <label>Assignee
+    <select th:field="*{assignee}">
+        <option th:each="assignee: ${assignees}" th:value="${assignee.id}" th:text="${assignee.name}"></option>
+    </datalist>
+    </select>
+    </label>
     <input type="submit" value="Submit">
 </form>
 </body>

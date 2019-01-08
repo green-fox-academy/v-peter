@@ -16,6 +16,10 @@ public class Todo {
   boolean urgent;
   boolean done;
 
+  @ManyToOne
+  @JoinColumn(name = "assignee_id")
+  Assignee assignee;
+
   public Todo() {
   }
 
@@ -25,10 +29,11 @@ public class Todo {
     this.done = false;
   }
 
-  public Todo(String title, boolean urgent, boolean done) {
+  public Todo(String title, boolean urgent, boolean done, Assignee assignee) {
     this.title = title;
     this.urgent = urgent;
     this.done = done;
+    this.assignee = assignee;
   }
 
   public Todo(long id, String title, boolean urgent, boolean done) {
@@ -68,5 +73,13 @@ public class Todo {
 
   public void setDone(boolean done) {
     this.done = done;
+  }
+
+  public Assignee getAssignee() {
+    return assignee;
+  }
+
+  public void setAssignee(Assignee assignee) {
+    this.assignee = assignee;
   }
 }

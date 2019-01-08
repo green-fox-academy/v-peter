@@ -5,7 +5,7 @@
     <title>Editing an assignee</title>
 </head>
 <body>
-<form action="#" th:action="@{/assignee/edit}" th:object="${assignee}" method="post">
+<form action="#" th:action="@{/assignee/{id}/edit(id=${assignee.id})}" th:object="${assignee}" method="post">
     <label>Name<input type="text" th:field="*{name}" required></label>
     <label>Email<input type="text" th:field="*{email}" required></label>
     <input type="submit" value="Submit">

@@ -1,6 +1,7 @@
 package com.greenfoxacademy.connectmysql.controller;
 
 import com.greenfoxacademy.connectmysql.model.Todo;
+import com.greenfoxacademy.connectmysql.service.AssigneeService;
 import com.greenfoxacademy.connectmysql.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,10 +13,16 @@ import org.springframework.web.bind.annotation.*;
 public class TodoController {
 
   TodoService todoService;
+  AssigneeService assigneeService;
 
   @Autowired
-  public void setRepo(TodoService todoService) {
+  public void setTodoService(TodoService todoService) {
     this.todoService = todoService;
+  }
+
+  @Autowired
+  public void setAssigneeService(AssigneeService assigneeService) {
+    this.assigneeService = assigneeService;
   }
 
 //  @RequestMapping(value={"","/list"})
@@ -64,6 +71,7 @@ public class TodoController {
   @GetMapping(value = "/add")
   public String add(Model model, @ModelAttribute Todo todo) {
     model.addAttribute("todo", todo);
+    model.addAttribute("assignees", this.assigneeService.listAll());
     return "todoadd";
   }
 
@@ -76,6 +84,7 @@ public class TodoController {
   @GetMapping(value = "/{id}/edit")
   public String edit(Model model, @PathVariable(name = "id") long id) {
     model.addAttribute("todo", todoService.getTodoById(id));
+    model.addAttribute("assignees", assigneeService.listAll());
     return "todoedit";
   }
 

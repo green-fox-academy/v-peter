@@ -8,6 +8,10 @@
 <h2>Add new todo</h2>
 <form action="#" th:action="@{/todo/add}" th:object="${todo}" method="post">
     <label>Title<input type="text" th:field="*{title}" required></label>
+    <label>Assignee
+    <select th:field="*{assignee}">
+        <option th:each="assignee: ${assignees}" th:text="${assignee.name}" th:value="${assignee.id}"></option>
+    </select></label>
     <input type="submit" value="Submit">
 </form>
 </body>
