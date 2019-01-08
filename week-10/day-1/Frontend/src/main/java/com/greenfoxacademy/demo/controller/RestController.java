@@ -40,7 +40,7 @@ public class RestController {
   @ResponseBody
   public Object greeter(@RequestParam(required = false) String name, @RequestParam(required = false) String title) {
     if (name == null && title == null) {
-      return new com.greenfoxacademy.demo.model.Error("Please provide a name and a title!");
+      return new Error("Please provide a name and a title!");
     } else if (name == null) {
       return new com.greenfoxacademy.demo.model.Error("Please provide a name!");
     } else if (title == null) {
