@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Peer to peer chat program</h1>
+<ul th:each="message: ${messages}">
+    <li th:text="${defaultmessage.userName}"></li>
+    <p th:text="${defaultmessage.text}"></p>
+    <li th:text="${message.userName}"></li>
+    <p th:text="${message.text}"></p>
+</ul>
+</body>
+</html>
