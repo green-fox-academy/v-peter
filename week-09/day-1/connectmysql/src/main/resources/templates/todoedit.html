@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Editing a todo item</title>
+    <link href="/style.css" rel="stylesheet">
 </head>
 <body>
 <form action="#" th:action="@{/todo/{id}/edit(id=${todo.id})}" th:object="${todo}" method="post">

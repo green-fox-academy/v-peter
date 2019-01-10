@@ -20,7 +20,7 @@
     <tbody>
     <tr th:each="ass: ${assignees}">
         <td th:text="${ass.id}"></td>
-        <td><a th:href="@{/assignee/todolistperassignee/{id}(id=${ass.id})}"><p th:text="${ass.name}"></p></a></td>
+        <td><a th:href="@{/assignee/todolistperassignee/{id}(id=${ass.id})}"><div th:text="${ass.name}"></div></a></td>
         <td th:text="${ass.email}"></td>
         <td><a th:href="@{/assignee/{id}/delete(id=${ass.id})}">DELETE</a></td>
         <td><a th:href="@{/assignee/{id}/edit(id=${ass.id})}">EDIT</a></td>

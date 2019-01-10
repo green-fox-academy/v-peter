@@ -3,6 +3,9 @@ table{
     border-collapse: collapse;
 }
 
+form{
+    display: block;
+}
 
 td{
     border: 1px solid black;

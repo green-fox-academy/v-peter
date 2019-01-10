@@ -69,8 +69,8 @@ public class TodoController {
   }
 
   @GetMapping(value = "/add")
-  public String add(Model model, @ModelAttribute Todo todo) {
-    model.addAttribute("todo", todo);
+  public String add(Model model) {
+    model.addAttribute("todo", new Todo());
     model.addAttribute("assignees", this.assigneeService.listAll());
     return "todoadd";
   }
