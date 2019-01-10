@@ -1,7 +1,11 @@
 package com.greenfoxacademy.urlaliasing.controller;
 
+import com.greenfoxacademy.urlaliasing.model.Url;
+import com.greenfoxacademy.urlaliasing.model.UrlWoSC;
 import com.greenfoxacademy.urlaliasing.service.UrlService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
@@ -50,12 +54,21 @@ public class UrlController {
     }
 
     @GetMapping(value = "/a")
-    public void link(@RequestParam String alias, HttpServletResponse httpServletResponse) throws IOException {
+    public Object link(@RequestParam String alias, HttpServletResponse httpServletResponse) throws IOException {
         if (service.getRepository().findByAlias(alias) != null) {
-            httpServletResponse.sendRedirect("http://" + service.getRepository().findByAlias(alias).getUrl());
+            //httpServletResponse.sendRedirect("http://" + service.getRepository().findByAlias(alias).getUrl());
+            return "redirect:http://"+service.getRepository().findByAlias(alias).getUrl();
         }
         else {
-            httpServletResponse.sendError(HttpServletResponse.SC_NOT_FOUND);
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            //httpServletResponse.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
     }
+
+    @GetMapping("/api/links")
+    @ResponseBody
+    public ResponseEntity<Url> getAllRest(){
+        return new ResponseEntity(this.service.getAll(), HttpStatus.OK);
+    }
+
 }

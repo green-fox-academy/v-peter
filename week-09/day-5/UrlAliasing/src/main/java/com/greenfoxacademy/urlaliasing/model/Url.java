@@ -1,8 +1,11 @@
 package com.greenfoxacademy.urlaliasing.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
+@JsonIgnoreProperties( { "secretCode" })
 public class Url {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

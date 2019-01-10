@@ -1,6 +1,7 @@
 package com.greenfoxacademy.urlaliasing.service;
 
 import com.greenfoxacademy.urlaliasing.model.Url;
+
 import com.greenfoxacademy.urlaliasing.repository.UrlCRUDRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ public class UrlService {
     private String message;
     private String color;
     private Url url;
+    //private UrlWoSC urlWoSC;
     private String scenario;
 
     public UrlService() {
@@ -76,6 +78,16 @@ public class UrlService {
         all.forEach(result::add);
         return result;
     }
+
+//    public List<UrlWoSC> getAllWoSCode () {
+//        Iterable<Url> all = this.repository.findAll();
+//        List<UrlWoSC> result = new ArrayList<>();
+//        for (Url url :
+//            all) {
+//            result.add(new UrlWoSC(url.getUrl(),url.getAlias(),url.getHitCount()));
+//        }
+//        return result;
+//    }
 
     public UrlCRUDRepository getRepository() {
         return repository;
