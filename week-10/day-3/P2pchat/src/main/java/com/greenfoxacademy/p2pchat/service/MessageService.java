@@ -13,21 +13,36 @@ import java.util.List;
 
 @Service
 public class MessageService {
+  Message defaultMessage;
 
-  JpaRepository repo;
+  MessageRepository repo;
+
+  public MessageService() {
+    this.defaultMessage = new Message("App", "Hi there! Submit your message using the send button!");
+  }
 
   @Autowired
   public void setRepo(MessageRepository repo) {
     this.repo = repo;
   }
 
+
   public Iterable<Message> getAllMessage(){
     //this.repo.findAll().forEach(message -> System.out.println(message));
     //if(this.repo.findAll().isEmpty()) return Collections.emptyList();
-    return this.repo.findAll();
+    return this.repo.findAllExceptDefault();
   }
 
   public Message getDefaultMessage(){
-    return new Message("App", "Hi there! Submit your message using the send button!");
+    if(this.repo.findMessageByUserName("App") == null) this.repo.save(this.defaultMessage);
+    return this.defaultMessage;
+  }
+
+  public void deleteAll(){
+    this.repo.deleteAll();
+  }
+
+  public void addMessage(Message message){
+    this.repo.save(message);
   }
 }

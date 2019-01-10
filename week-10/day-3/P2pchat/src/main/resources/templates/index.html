@@ -7,11 +7,20 @@
 </head>
 <body>
 <h1>Peer to peer chat program</h1>
-<ul th:each="message: ${messages}">
+<ul>
     <li th:text="${defaultmessage.userName}"></li>
-    <p th:text="${defaultmessage.text}"></p>
-    <li th:text="${message.userName}"></li>
-    <p th:text="${message.text}"></p>
+    <div th:text="${defaultmessage.text}"></div>
 </ul>
+<ul th:each="message: ${messages}">
+    <li th:text="${message.userName}"></li>
+    <div th:text="${message.text}"></div>
+</ul>
+
+<form action="/newmessage" method="post" id="id">
+    <textarea name="comment" form="id" placeholder="Enter your message here..."></textarea>
+    <input type="submit">
+</form>
+<div><a href="/register">Register</a></div>
+<div><a href="/deleteall">Delete all messages</a></div>
 </body>
 </html>

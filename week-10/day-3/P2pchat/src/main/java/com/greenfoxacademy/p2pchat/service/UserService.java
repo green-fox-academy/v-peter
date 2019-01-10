@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
+
 @Service
 public class UserService {
 
-  JpaRepository repo;
+  UserRepository repo;
 
   @Autowired
   public void setRepo(UserRepository repo){
@@ -19,5 +22,13 @@ public class UserService {
 
   public void addUser(User user) {
     this.repo.save(user);
+  }
+
+  public List<User> getAll(){
+    return repo.findAll();
+  }
+
+  public User getCurrentUser(){
+    return repo.getCurrentUser();
   }
 }
