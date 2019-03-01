@@ -6,7 +6,7 @@
     <link href="/style.css" rel="stylesheet">
 </head>
 <body>
-<form action="#" th:action="@{/todo/{id}/edit(id=${todo.id})}" th:object="${todo}" method="post">
+<form action="#" th:action="@{/todo/{id}/edit(id=${todo.id})}" th:object="${todo}" th:method="put">
     <label>Todo description<input type="text" th:field="*{title}" required></label>
     <label>Urgent<input type="checkbox" th:field="*{urgent}" ></label>
     <label>Done<input type="checkbox" th:field="*{done}" ></label>

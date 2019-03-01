@@ -7,7 +7,6 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name="todo")
 public class Todo {
-
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   long id;
@@ -15,9 +14,7 @@ public class Todo {
   String title;
   boolean urgent;
   boolean done;
-
-  @ManyToOne
-  @JoinColumn(name = "assignee_id")
+  @ManyToOne(fetch = FetchType.LAZY)
   Assignee assignee;
 
   public Todo() {

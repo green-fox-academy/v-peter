@@ -10,7 +10,6 @@ public class Assignee {
   long id;
   String email;
   String name;
-
   @OneToMany(mappedBy = "assignee")
   List<Todo> todos;
 

@@ -62,7 +62,7 @@ public class TodoController {
 //    return "redirect:/todo";
 //  }
 
-  @RequestMapping(value = "/delete")
+  @DeleteMapping(value = "/delete")
   public String delete(@RequestParam long id) {
     todoService.deleteTodo(todoService.getTodoById(id));
     return "redirect:/todo";
@@ -88,8 +88,8 @@ public class TodoController {
     return "todoedit";
   }
 
-  @PostMapping(value = "/{id}/edit")
-  public String modify(@ModelAttribute Todo editedTodo){
+  @PutMapping(value = "/{id}/edit")
+  public String modify(Todo editedTodo){
     todoService.addTodo(editedTodo);
     return "redirect:/todo";
   }
@@ -99,8 +99,4 @@ public class TodoController {
     model.addAttribute("todos", todoService.getTodoByTitle(title));
     return "todolist";
   }
-
-
-
-
 }

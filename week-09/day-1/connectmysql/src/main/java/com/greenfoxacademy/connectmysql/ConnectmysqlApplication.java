@@ -27,7 +27,7 @@ public class ConnectmysqlApplication implements CommandLineRunner {
 //    repo.save(new Todo("anything" ));
     repo.findByDone(false).forEach(System.out::println);
     repo.findByDone(false).forEach(name -> {
-      System.out.println(name);
+      System.out.println(name.getTitle());
     });
 
   }

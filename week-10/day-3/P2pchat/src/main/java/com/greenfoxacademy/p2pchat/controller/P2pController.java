@@ -9,10 +9,7 @@ import com.greenfoxacademy.p2pchat.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class P2pController {
@@ -38,9 +35,9 @@ public class P2pController {
 
   @GetMapping(value = {"", "/"})
   public Object index(Model model) {
+    //, @RequestHeader String user, @RequestHeader String pass
     model.addAttribute("messages", messageService.getAllMessage());
     model.addAttribute("defaultmessage", messageService.getDefaultMessage());
-    System.out.println(messageService.getDefaultMessage().getText());
     logService.log();
     return "index";
   }
@@ -48,7 +45,7 @@ public class P2pController {
   @GetMapping("/register")
   public String register() {
     logService.log();
-    if(!this.userService.getAll().isEmpty()) return "redirect:/";
+    if (!this.userService.getAll().isEmpty()) return "redirect:/";
     else return "register";
   }
 

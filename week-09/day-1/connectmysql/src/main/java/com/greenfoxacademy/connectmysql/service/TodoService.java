@@ -2,15 +2,9 @@ package com.greenfoxacademy.connectmysql.service;
 
 import com.greenfoxacademy.connectmysql.model.Todo;
 import com.greenfoxacademy.connectmysql.repository.TodoRepository;
-import javassist.bytecode.stackmap.TypeData;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @org.springframework.stereotype.Service
 public class TodoService {
@@ -51,11 +45,11 @@ public class TodoService {
     this.repo.delete(todo);
   }
 
-  public void addTodo(Todo todo){
+  public void addTodo(Todo todo) {
     if (todo != null) repo.save(todo);
   }
 
-  public Todo getTodoByTitle(String title){
+  public Todo getTodoByTitle(String title) {
     return this.repo.findByTitle(title);
   }
 
