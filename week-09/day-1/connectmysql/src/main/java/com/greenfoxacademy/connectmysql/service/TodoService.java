@@ -11,7 +11,7 @@ public class TodoService {
 
   TodoRepository repo;
 
-  @Autowired
+@Autowired
   public void setRepo(TodoRepository repo) {
     this.repo = repo;
   }
